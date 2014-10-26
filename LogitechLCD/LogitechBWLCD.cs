@@ -16,14 +16,14 @@ namespace Logitech
 
 		public event EventHandler<ButtonsEventArgs> KeyPressed;
 
-		public LogitechBWLCD(bool btnCallbacks)
+		public LogitechBWLCD(string appFriendlyName, bool btnCallbacks)
 		{
 			if (DMcLgLCD.LcdInit() != DMcLgLCD.ERROR_SUCCESS)
 			{
 				throw new LogitechLCDException("Cannot initialize");
 			}
 			_initialized = true;
-			_connection = DMcLgLCD.LcdConnectEx("Process Manager", 0, 0);
+			_connection = DMcLgLCD.LcdConnectEx(appFriendlyName, 0, 0);
 			if (_connection == DMcLgLCD.LGLCD_INVALID_CONNECTION)
 			{
 				throw new LogitechLCDException("Cannot connect");

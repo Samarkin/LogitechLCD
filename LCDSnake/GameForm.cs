@@ -14,7 +14,7 @@ namespace LCDSnake
 
 		public GameForm()
 		{
-			_lcd = new LogitechBWLCD(true);
+			_lcd = new LogitechBWLCD("Samara's Snake", true);
 			_timer = new Timer();
 			_screen = new SplashScreen();
 			_timer.Start();
