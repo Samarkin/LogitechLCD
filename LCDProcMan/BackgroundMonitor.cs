@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using Logitech;
 
@@ -23,7 +22,6 @@ namespace LCDProcMan
 			_lcd.KeyPressed += KeyPressed;
 			_timer = new Timer {Interval = 100};
 			_timer.Tick += Tick;
-			File.Delete(@"some.bmp");
 			_timer.Start();
 		}
 
