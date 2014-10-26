@@ -13,6 +13,10 @@ namespace Logitech
 		private readonly int _connection = DMcLgLCD.LGLCD_INVALID_CONNECTION;
 		private readonly int _device = DMcLgLCD.LGLCD_INVALID_DEVICE;
 		private readonly Bitmap _lcd;
+// ReSharper disable PrivateFieldCanBeConvertedToLocalVariable
+// It's here to avoid disposal of the delegate
+		private readonly DMcLgLCD.btnCallback _callback;
+// ReSharper restore PrivateFieldCanBeConvertedToLocalVariable
 
 		public event EventHandler<ButtonsEventArgs> KeyPressed;
 
@@ -41,7 +45,8 @@ namespace Logitech
 			DMcLgLCD.LcdSetAsLCDForegroundApp(_device, DMcLgLCD.LGLCD_FORE_YES);
 			if (btnCallbacks)
 			{
-				DMcLgLCD.LcdSetButtonCallback(ButtonCallback);
+				_callback = ButtonCallback;
+				DMcLgLCD.LcdSetButtonCallback(_callback);
 			}
 		}
 
