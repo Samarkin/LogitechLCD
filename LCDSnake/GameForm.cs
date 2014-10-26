@@ -64,6 +64,11 @@ namespace LCDSnake
 			oldScreen.Dispose();
 		}
 
+		protected override void SetVisibleCore(bool value)
+		{
+			base.SetVisibleCore(false);
+		}
+
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
