@@ -27,7 +27,7 @@ namespace Logitech
 				throw new LogitechLCDException("Cannot initialize");
 			}
 			_initialized = true;
-			_connection = DMcLgLCD.LcdConnectEx(appFriendlyName, 0, 0);
+			_connection = DMcLgLCD.LcdConnectEx(appFriendlyName, 0, 1);
 			if (_connection == DMcLgLCD.LGLCD_INVALID_CONNECTION)
 			{
 				throw new LogitechLCDException("Cannot connect");
