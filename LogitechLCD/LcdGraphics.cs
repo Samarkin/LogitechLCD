@@ -13,6 +13,7 @@ namespace Logitech
 
 		internal LcdGraphics(Graphics graphics, int width, int height)
 		{
+			graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
 			_graphics = graphics;
 			Size = new Size(width, height);
 		}
